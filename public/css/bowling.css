@@ -1,0 +1,33 @@
+div.pin {
+	width: 40px;
+	height: 60px;
+	float: left;
+	background-image: url("../images/bowling-pin.png");
+	background-size: cover;
+}
+
+div.pin.start-row-2 {
+	margin-left: 20px;
+}
+
+div.pin.start-row-3 {
+	margin-left: 40px;
+}
+
+div.pin.start-row-4 {
+	margin-left: 60px;
+}
+
+br.clear {
+	clear: both;
+}
+
+table.score tr td.with-side-borders {
+	border-right: 2px solid #000;
+	width: 30px;
+	text-align: center;
+}
+
+table.score tr td:nth-child(2n) {
+	border-right: 2px solid #000;
+}

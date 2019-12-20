@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <link rel="stylesheet" type="text/css" href="/css/bowling.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <form action="/simulator" method="post">
+          <h2>Bowling Simulator</h2>
+
+          <p>Displaying simulation for: <b><%= name %></b></p>
+
+          <h3>Frame <%= frame %></h3>
+
+          <table class="score">
+            <tr>
+              <td class="with-side-borders" colspan=2>1</td>
+              <td class="with-side-borders" colspan=2>2</td>
+              <td class="with-side-borders" colspan=2>3</td>
+              <td class="with-side-borders" colspan=2>4</td>
+              <td class="with-side-borders" colspan=2>5</td>
+              <td class="with-side-borders" colspan=2>6</td>
+              <td class="with-side-borders" colspan=2>7</td>
+              <td class="with-side-borders" colspan=2>8</td>
+              <td class="with-side-borders" colspan=2>9</td>
+              <td class="with-side-borders" colspan=2>10</td>
+            </tr>
+            <tr>
+             <% for (var i = 0; i < hits.length; i++) { %>
+                <% for (var b = 0; b < hits[i].length; b++) { %>
+                  <td><%= hits[i][b] %></td>
+                  <% } %>
+              <% } %>
+            </tr>
+            <tr>
+             <% for (var i = 0; i < score.length; i++) { %>
+                  <td colspan="2" class="with-side-borders"><%= score[i] %></td>
+              <% } %>
+              </td>
+            </tr>
+          </table>
+
+          
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <br class="clear">
+          <div class="pin start-row-2"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <br class="clear">
+          <div class="pin start-row-3"></div>
+          <div class="pin"></div>
+          <br class="clear">
+          <div class="pin start-row-4"></div>
+          <br class="clear">
+
+          <% if(!completed) { %>
+            <input type="submit" class="ghost-button" value="Hit"> 
+          <% } else { %>
+            <p>Simulation is completed!</p> 
+          <% } %>
+          <input type="hidden" name="name" value="<%= name %>">
+          <input type="hidden" name="turn" value="<%= turn %>">
+          <input type="hidden" name="turn_hit" value="<%= turn_hit %>">
+          <br><br>
+        </form>
+
+        <form action="/" method = "get">
+          <button>Go Back</button>
+        </form>
+      </fieldset>
+    </div>
+  </body>
+</html>
